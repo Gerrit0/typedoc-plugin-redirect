@@ -1,6 +1,6 @@
 {
   "name": "typedoc-plugin-redirect",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Add redirect pages to your generated TypeDoc site.",
   "main": "dist/plugin.js",
