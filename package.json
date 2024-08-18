@@ -1,0 +1,35 @@
+{
+  "name": "typedoc-plugin-redirect",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Add redirect pages to your generated TypeDoc site.",
+  "main": "dist/plugin.js",
+  "license": "MIT",
+  "author": "Gerrit Birkeland <gerrit@gerritbirkeland.com>",
+  "scripts": {
+    "build": "tsc",
+    "lint": "prettier --check .",
+    "docs": "typedoc --plugin ./dist/plugin.js src/plugin.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.4.0",
+    "prettier": "^3.3.3",
+    "typedoc": "^0.26.6"
+  },
+  "peerDependencies": {
+    "typedoc": "0.26.x"
+  },
+  "keywords": [
+    "typedoc-plugin"
+  ],
+  "files": [
+    "dist/plugin.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Gerrit0/typedoc-plugin-redirect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gerrit0/typedoc-plugin-redirect/issues"
+  }
+}
