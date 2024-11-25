@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { dirname, join, relative, resolve } from "path";
 import { Application, ParameterType, Renderer, RendererEvent } from "typedoc";
 
@@ -7,6 +7,8 @@ declare module "typedoc" {
         redirects: Record<string, string>;
     }
 }
+
+const PLUGIN_PREFIX = "[typedoc-plugin-redirect]";
 
 const PAGE_TEMPLATE = `<!DOCTYPE html>
 <html>
@@ -52,6 +54,12 @@ export function load(app: Application) {
             if (outputPath.endsWith("/")) {
                 outputPath += "index.html";
             }
+            if (existsSync(outputPath)) {
+                app.logger.warn(
+                    `${PLUGIN_PREFIX} ${outputPath} will be overwritten with a redirect.`,
+                );
+            }
+
             mkdirSync(dirname(outputPath), { recursive: true });
             writeFileSync(
                 outputPath,
