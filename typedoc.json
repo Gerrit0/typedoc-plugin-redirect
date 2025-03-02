@@ -1,6 +1,6 @@
 {
-    "redirects": {
-        "/example/": "https://example.com",
-        "load.html": "functions/load.html"
-    }
+	"redirects": {
+		"/example/": "https://example.com",
+		"load.html": "functions/load.html"
+	}
 }
