@@ -21,7 +21,7 @@ jobs:
             - name: Build
               run: pnpm build
             - name: Build docs
-              run: pnpm docs
+              run: pnpm doc
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@v4.6.3
               with:
