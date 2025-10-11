@@ -3,6 +3,11 @@ on:
     push:
         branches:
             - main
+
+permissions:
+    id-token: write # Required for OIDC
+    contents: write # Required for git tag
+
 jobs:
     npm-publish:
         name: npm-publish
@@ -21,6 +26,9 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: "20"
+            - name: Upgrade npm # Hack to deal with needing a new version for OIDC
+              if: steps.check.outputs.changed == 'true'
+              run: npm install -g npm@11
             - name: Install pnpm
               if: steps.check.outputs.changed == 'true'
               run: npm i -g pnpm@10
@@ -30,11 +38,6 @@ jobs:
             - name: Build
               if: steps.check.outputs.changed == 'true'
               run: pnpm build
-            - name: Setup publish token
-              if: steps.check.outputs.changed == 'true'
-              run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > .npmrc
-              env:
-                  NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
             - name: Publish
               if: steps.check.outputs.changed == 'true'
               run: |
