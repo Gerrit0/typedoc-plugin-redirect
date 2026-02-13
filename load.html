@@ -3,9 +3,12 @@
 	<head>
 		<title>This page has moved to functions/load.html</title>
 		<meta charset="utf-8" />
-		<meta http-equiv="refresh" content="0;URL='functions/load.html'" />
+		<noscript>
+			<meta http-equiv="refresh" content="0;URL='functions/load.html'" />
+		</noscript>
 	</head>
 	<body>
+		<script>location.replace('functions/load.html' + location.hash)</script>
 		<p>This page has moved to <a href="functions/load.html">functions/load.html</a>.</p>
 	</body>
 </html>

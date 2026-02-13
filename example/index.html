@@ -3,9 +3,12 @@
 	<head>
 		<title>This page has moved to https://example.com</title>
 		<meta charset="utf-8" />
-		<meta http-equiv="refresh" content="0;URL='https://example.com'" />
+		<noscript>
+			<meta http-equiv="refresh" content="0;URL='https://example.com'" />
+		</noscript>
 	</head>
 	<body>
+		<script>location.replace('https://example.com' + location.hash)</script>
 		<p>This page has moved to <a href="https://example.com">https://example.com</a>.</p>
 	</body>
 </html>
