@@ -1,3 +1,7 @@
+# v1.3.0 (2026-02-13)
+
+- Redirection will now preserve document hashes if present and JavaScript is enabled.
+
 # v1.2.1 (2025-10-11)
 
 - No behavior changes, migrated release workflow to use trusted publishing.

@@ -15,9 +15,12 @@ const PAGE_TEMPLATE = `<!DOCTYPE html>
 	<head>
 		<title>{MOVED}</title>
 		<meta charset="utf-8" />
-		<meta http-equiv="refresh" content="0;URL='{URL}'" />
+		<noscript>
+			<meta http-equiv="refresh" content="0;URL='{URL}'" />
+		</noscript>
 	</head>
 	<body>
+		<script>location.replace('{URL}' + location.hash)</script>
 		<p>{MOVED_URL}</p>
 	</body>
 </html>
